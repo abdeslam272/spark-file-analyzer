@@ -1,8 +1,28 @@
+# Logs
 *.log
 logs/
+
+# Build outputs
 target/
+*.class
+*.jar
+
+# IDE configs
+.idea/
+.vscode/
+
+# Environment files
+.env
+
+# Certificates & keys
 *.crt
 *.key
 *.pem
-.idea/
-.vscode/
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Temporary files
+*.tmp
+*.bak
