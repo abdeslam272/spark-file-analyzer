@@ -1,0 +1,33 @@
+services:
+  spark-master:
+    build: # Use build to point to the Dockerfile location
+      context: . # Path to the directory containing the Dockerfile
+      dockerfile: Dockerfile # (optional) Explicitly specify the Dockerfile name
+    image: spark:latest
+    container_name: spark-master
+    environment:
+      - SPARK_MODE=master
+    command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.master.Master"]
+    volumes:
+      - ./data/raw:/data/raw
+      - ./src/main/python:/src/main/python
+      - ./src/main/scala:/src/main/scala
+
+    ports: 
+      - "8080:8080"
+    networks:
+      - spark-network
+
+  spark-worker:
+    image: spark:latest
+    container_name: spark-worker
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER=spark://spark-master:7077
+    command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077"]
+    networks:
+      - spark-network
+      
+networks:
+  spark-network:
+    driver: bridge
