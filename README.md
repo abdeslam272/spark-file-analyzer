@@ -58,3 +58,11 @@ WHY : Description détaillée
     git branch -d feature/nouvelle-fonctionnalite
     git push origin --delete feature/nouvelle-fonctionnalite
    ```
+
+# Understand Spark Workflow:
+
+Write Scala code → Compile (sbt) → Package → Run (spark-submit).
+
+Understand spark-submit spark-submit is the tool used to run Spark applications on a cluster or a standalone environment. It handles:
+
+Deploying your JAR file. Configuring Spark runtime options (e.g., memory, cores, environment variables). Running your application.
