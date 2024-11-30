@@ -42,8 +42,7 @@ WHY : Description détaillée
 4. **Fusionner ta branche dans main** :
 
    ```bash
-   git checkout feature/nouvelle-fonctionnalite
-   git merge main
+   git merge feature/nouvelle-fonctionnalite
    ```
 
 5. **Résoudre les conflits (si nécessaire) et pousser sur GitHub** :
