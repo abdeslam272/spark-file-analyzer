@@ -12,6 +12,8 @@ services:
       - ./data/raw:/data/raw
       - ./src/main/python:/src/main/python
       - ./src/main/scala:/src/main/scala
+      - ./sbt-launch:/root/.cache/sbt/boot/sbt-launch/1.10.5/
+
 
     ports: 
       - "8080:8080"
